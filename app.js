@@ -2,7 +2,8 @@
 var express = require('express');
 var login = require('./controllers/login');
 var home = require('./controllers/home');
-// var logout = require('./controllers/logout');
+var product = require('./controllers/product');
+var logout = require('./controllers/logout');
 var ejs = require('ejs');
 var exSession = require('express-session');
 var cookieParser = require('cookie-parser');
@@ -18,13 +19,18 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(exSession({secret: 'my top secret value', saveUninitialized: true, resave: false}));
 app.use(cookieParser());
 //app.use(expressValidator());
+
+app.use('/abc', express.static('xyz'));
+app.use('/admin', express.static('abc'));
+
 app.use('/login', login);
 app.use('/home', home);
-// app.use('/logout', logout);
+app.use('/product', product);
+app.use('/logout', logout);
 
 //routes
 app.get('/', function(req, res){
-	res.send('Welcome Nill');
+	res.send('Welcome');
 });
 
 //server startup

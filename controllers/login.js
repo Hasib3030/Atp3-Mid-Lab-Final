@@ -21,7 +21,10 @@ router.post('/', function(req, res){
 	 	if(status){
 			res.cookie('username', req.body.uname);
 			res.redirect('/home');
-		}else{
+
+		}
+		else{
+
 			res.send('invalid username/password');
 		}
 	});

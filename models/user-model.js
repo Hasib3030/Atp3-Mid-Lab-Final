@@ -5,9 +5,10 @@ module.exports= {
 		var sql = "select * from user where id=?";
 		db.getResults(sql, [id], function(results){
 			if(results.length > 0){
-				callback(results[0]);
+				callback(results);
+
 			}else{
-				callback(null);
+				callback(false);
 			}
 		});
 	},
