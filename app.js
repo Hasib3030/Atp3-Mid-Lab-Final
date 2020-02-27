@@ -2,6 +2,7 @@
 var express = require('express');
 var login = require('./controllers/login');
 var home = require('./controllers/home');
+var cushome = require('./controllers/cushome');
 var product = require('./controllers/product');
 var logout = require('./controllers/logout');
 var ejs = require('ejs');
@@ -25,6 +26,7 @@ app.use('/admin', express.static('abc'));
 
 app.use('/login', login);
 app.use('/home', home);
+app.use('/cushome', cushome);
 app.use('/product', product);
 app.use('/logout', logout);
 
