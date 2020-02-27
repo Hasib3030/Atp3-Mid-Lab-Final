@@ -17,15 +17,16 @@ router.post('/', function(req, res){
 		password: req.body.password
 	};
 
-	userModel.validate(user, function(status){
-	 	if(status){
+	userModel.validate(user, function(result){
+	 	if(result!=null && result.type=='admin'){
 			res.cookie('username', req.body.uname);
 			res.redirect('/home');
-
+			//res.send('admin');
 		}
 		else{
 
-			res.send('invalid username/password');
+			res.cookie('username', req.body.uname);
+			res.redirect('/cushome');
 		}
 	});
 });
