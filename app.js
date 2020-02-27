@@ -2,6 +2,8 @@
 var express = require('express');
 var login = require('./controllers/login');
 var home = require('./controllers/home');
+var Man = require('./controllers/Man');
+var Girls = require('./controllers/Girls');
 var cushome = require('./controllers/cushome');
 var product = require('./controllers/product');
 var logout = require('./controllers/logout');
@@ -25,6 +27,8 @@ app.use('/abc', express.static('xyz'));
 app.use('/admin', express.static('abc'));
 
 app.use('/login', login);
+app.use('/Man', Man);
+app.use('/Girls', Girls);
 app.use('/home', home);
 app.use('/cushome', cushome);
 app.use('/product', product);
