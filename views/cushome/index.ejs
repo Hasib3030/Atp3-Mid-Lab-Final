@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="admin/style.css">
+</head>
+<body>
+	<center>
+	<div>
+		<br>
+		<h2>Welcom To Our Shop Home Page, <%= user.username%></h2> 	<br>	
+	</div>
+
+	<a href="/home/adduser">CREATE NEW USERS</a> |
+	<a href="/home/view_users">VIEW ALL USERS</a> |
+	<a href="/home/addUser">ADD ALL USERS</a> |
+	<a href="/home/product">ALL PRODUCT</a> |
+	<a href="/logout">LOGOUT</a><br><br><br>
+	Username:  <%= user.username %> <br>
+	Id: <%= user.id %> <br>
+	Password: <%= user.password %> <br>
+	Type: <%= user.type %>
+	<center>
+</body>
+</html>
