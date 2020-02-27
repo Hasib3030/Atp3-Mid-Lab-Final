@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="admin/style.css">
 </head>
 <body>
-    <h1>Welcome Home Page</h1>
-    <a href="/home/view_users">All UserList</a>
+	<center>
+	<div>
+		<h2>Welcom To Our Shop Home Page, <%= user.username%></h2> 		
+	</div>
+
+	<a href="/home/adduser">Create user</a> |
+	<a href="/home/view_users">view users</a> |
+	<a href="/home/addUser">Add User</a> |
+	<a href="/logout">Logout</a><br>
+	Username:  <%= user.username %> <br>
+	Id: <%= user.id %> <br>
+	Password: <%= user.password %> <br>
+	Type: <%= user.type %>
+	<center>
 </body>
 </html>

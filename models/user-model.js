@@ -1,17 +1,6 @@
 var db = require('./db');
 
 module.exports= {
-	// getById : function(id, callback){
-	// 	var sql = "select * from user where id=?";
-	// 	db.getResults(sql, [id], function(results){
-	// 		if(results.length > 0){
-	// 			callback(results);
-	// 		}else{
-	// 			callback([]);
-	// 		}
-	// 	});
-	// },
-
 	getById : function(id, callback){
 		var sql = "select * from user where id=?";
 		db.getResults(sql, [id], function(results){
@@ -19,18 +8,6 @@ module.exports= {
 				callback(results[0]);
 			}else{
 				callback(null);
-			}
-		});
-	},
-
-	getByName : function (username, callback){
-		var sql = "select * from user where username = ?";
-		db.getResults(sql, [username], function(results){
-			if(results.length > 0){
-				callback(results);
-			}
-			else{
-				callback([]);
 			}
 		});
 	},
@@ -49,13 +26,12 @@ module.exports= {
 		db.getResults(sql, [user.username, user.password], function(results){
 
 			if(results.length > 0){
-				callback({userlist: results});
+				callback(true);
 			}else{
-				callback(null);
+				callback(false);
 			}
 		});
 	},
-
 	getByUname: function(username, callback){
 		var sql = "select * from user where username=?";
 		db.getResults(sql, [username], function(results){
