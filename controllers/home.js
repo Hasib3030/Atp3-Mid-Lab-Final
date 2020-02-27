@@ -11,6 +11,11 @@ router.get('*', function(req, res, next){
 	}
 });
 
+router.get('/product', function(req, res){
+	res.render('home/product');
+});
+
+
 router.get('/', function(req, res){
 	userModel.getByUname(req.cookies['username'], function(result){
 		res.render('home/index', {user: result});
@@ -80,6 +85,18 @@ router.post('/delete/:id', function(req, res){
 
 router.get('/addUser', function(req, res){
 	res.render('home/addUser');
+});
+
+router.post('/view_users', function(req, res){
+	var id = req.body.id;
+	userModel.getById(id, function(results){
+		if(results.length > 0){
+			res.render('home/view_users', {userlist : results});
+		}
+		else{
+			res.send('No Recoed Found !!');
+		}
+	});
 });
 
 router.post('/addUser', function(req, res){
